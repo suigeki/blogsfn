@@ -1,0 +1,33 @@
+{# src/BLOG/GeneralBundle/Resources/views/Category/index.html.twig #}
+
+{# Mise en place du template fils #}
+
+{# Référence au template père  src/BLOG/GeneralBundle/Resources/views/Templatesmasters #}
+{% extends "BLOGGeneralBundle:Templatesmasters:layout.html.twig" %}
+
+{# Affichage le lien d'accès du fichier #}
+{% block urlfile %}
+    src/BLOG/GeneralBundle/Resources/views/Category/index.html.twig
+{% endblock %}
+
+{# parent() appelle le contenu du block du template père #}
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{# On envoi le contenu au block body du template père #}
+{% block bloggeneral_body %}
+    <h2>Liste des catégories</h2>
+    <ul>
+        {% for category in listCategories %}
+            <li>
+                {#% set titreUrl = preg_replace("#[^a-zA-Z]#", "", advert.title) %#}
+                <a href="{{ path('blog_general_categoryview', 
+                                {'id': category.id , 'slug': category.name|url_encode, 'format': 'html'}) 
+                         }}">{{ category.name }}</a>.
+            </li>
+        {% else %}
+            <li>Pas (encore !) de catégories</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

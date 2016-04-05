@@ -1,0 +1,35 @@
+{# src/BLOG/GeneralBundle/Resources/views/Category/view.html.twig #}
+
+{# Mise en place du template fils #}
+
+{# Référence au template père  src/BLOG/GeneralBundle/Resources/views/Templatesmasters #}
+{% extends "BLOGGeneralBundle:Templatesmasters:layout.html.twig" %}
+
+{# Affichage le lien d'accès du fichier #}
+{% block urlfile %}
+    src/BLOG/GeneralBundle/Resources/views/Category/view.html.twig
+{% endblock %}
+
+{# parent() appelle le contenu du block du template père #}
+{% block title %}
+    Lecture d'une catégorie - {{ parent() }}
+{% endblock %}
+
+{# On envoi le contenu au block body du template père #}
+{% block bloggeneral_body %}
+    <h2>Catégorie : {{ category.name }} ({{ category.id }})</h2>
+    <p>
+        <a href="{{ path('blog_general_categoryindex') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste des catégories
+        </a>
+        <a href="{{ path('blog_general_categoryedit', {'id': category.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modifier la catégorie
+        </a>
+        <a href="{{ path('blog_general_categorydelete', {'id': category.id}) }}" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer la catégorie
+        </a>
+    </p>
+{% endblock %}

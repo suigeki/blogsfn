@@ -1,0 +1,27 @@
+{# src/BLOG/GeneralBundle/Resources/views/Category/add.html.twig #}
+
+{# Mise en place du template fils #}
+
+{# Référence au template père  src/BLOG/GeneralBundle/Resources/views/Templatesmasters #}
+{% extends "BLOGGeneralBundle:Templatesmasters:layout.html.twig" %}
+
+{# Affichage le lien d'accès du fichier #}
+{% block urlfile %}
+    src/BLOG/GeneralBundle/Resources/views/Category/add.html.twig
+{% endblock %}
+
+{# parent() appelle le contenu du block du template père #}
+{% block title %}
+    Ajouter une catégorie - {{ parent() }}    
+{% endblock %}
+
+{# On envoi le contenu au block body du template père #}
+{% block bloggeneral_body %}
+    <h2>{{ action }}</h2>
+    
+    {{ include("BLOGGeneralBundle:Category:form.html.twig") }}
+
+    <p>
+        Attention : cette catégorie sera ajoutée directement après validation du formulaire.
+    </p>
+{% endblock %}

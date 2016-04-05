@@ -1,0 +1,16 @@
+{# src/BLOG/GeneralBundle/Resources/views/Article/list.html.twig #}
+
+{# Ce template n'hérite de personne, tout comme le template inclus avec {{ include() }}. #}
+<ul class="nav nav-pills nav-stacked">
+    {% for article in listArticles %}
+        <li>
+            <a href="{{path('blog_general_articleview', 
+                                            {'id': article.id , 
+                                            'slug': article.title|url_encode}
+                            ) 
+                    }}">{{ article.title }}</a>
+        </li>
+    {% else %}
+        <li>Aucun article</li>
+    {% endfor %}
+</ul>

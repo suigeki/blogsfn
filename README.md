@@ -1,2 +1,1 @@
-# blogsfn
-Blog Laboratoire Symfony 2
+# Symfony2.7.1

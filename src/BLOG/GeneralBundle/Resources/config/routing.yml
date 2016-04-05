@@ -1,0 +1,64 @@
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/hello/world
+blog_general_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BLOGGeneralBundle:Default:index }
+
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/listArticles
+blog_general_articlelist:
+    path:     /listArticles
+    defaults: { _controller: BLOGGeneralBundle:Article:list }
+    
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/articles
+blog_general_articleindex:
+    path:     /articles
+    defaults: { _controller: BLOGGeneralBundle:Article:index }
+    
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/viewArticle/1/monarticle    
+blog_general_articleview:
+    path:     /viewArticle/{id}/{slug}
+    defaults: { _controller: BLOGGeneralBundle:Article:view }
+    requirements:
+        id: \d+
+        
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/addArticle    
+blog_general_articleadd:
+    path:     /addArticle
+    defaults: { _controller: BLOGGeneralBundle:Article:add }
+
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/listCategories
+blog_general_categorylist:
+    path:      /listCategories
+    defaults:  { _controller: BLOGGeneralBundle:Category:list }
+    requirements:
+        limit: \d+
+
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/categories    
+blog_general_categoryindex:
+    path:     /categories
+    defaults: { _controller: BLOGGeneralBundle:Category:index }
+    
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/viewCategory/1/macategorie    
+blog_general_categoryview:
+    path:     /viewCategory/{id}/{slug}
+    defaults: { _controller: BLOGGeneralBundle:Category:view }
+    requirements:
+        id: \d+
+
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/addCategory    
+blog_general_categoryadd:
+    path:     /addCategory
+    defaults: { _controller: BLOGGeneralBundle:Category:add }
+    
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/editCategory/1    
+blog_general_categoryedit:
+    path:     /editCategory/{id}
+    defaults: { _controller: BLOGGeneralBundle:Category:edit }
+    requirements:
+        id: \d+
+        
+# http://localhost:8787/symfony2/blogsfn/web/app_dev.php/delete/category/1    
+blog_general_categorydelete:
+    path:     /delete/category//{id}
+    defaults: { _controller: BLOGGeneralBundle:Category:delete }
+    requirements:
+        id: \d+

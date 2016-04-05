@@ -1,0 +1,53 @@
+{# src/BLOG/GeneralBundle/Resources/views/Category/form.html.twig #}
+
+<h3>Formulaire de catégorie</h3>
+
+<div class="well">
+    {# Ouverture de la balise <form> du formulaire HTML #}
+    <!-- Valeur de base--> {# form(form) #}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+        
+        <!-- Configuration du champs name -->
+        <div class="form-group">
+            {# On génère le label. #}
+            {{ form_label(form.name, "Catégorie", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour le champ name. #}
+            {{ form_errors(form.name) }}
+            <div class="col-sm-4">
+                {# On génère l'input. #}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <!-- Fin de la configuration du champs name -->
+        
+        <!-- Configuration du champs active -->
+        <div class="form-group">
+            {# On génère le label. #}
+            {{ form_label(form.active, "Statut", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-4">                
+                {# form_row(form.active) #}
+                {{ form_widget(form.active) }} <em>Activée/Désactivée</em>
+            </div>
+        </div>
+        <!-- Fin de la configuration du champs active -->
+        
+        <!-- Configuration du bouton submit -->
+        <div class="form-group">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-4">                
+                {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                {{ form_widget(form.save, {'label': 'Enregistrer la catégorie','attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+        </div>
+        <!-- Fin de la configuration du bouton submit -->
+        
+        {# Génération automatique des champs pas encore écrits.
+        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+        et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+        
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+</div>
