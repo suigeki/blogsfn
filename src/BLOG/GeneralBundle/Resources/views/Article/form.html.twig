@@ -1,0 +1,82 @@
+{# src/BLOG/GeneralBundle/Resources/views/Article/form.html.twig #}
+
+<h3>Formulaire d'annonce</h3>
+
+<div class="well">
+    {# Ouverture de la balise <form> du formulaire HTML #}
+    <!-- Valeur de base--> {# form(form) #}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(form) }}
+        
+        <!-- Configuration du champs date -->
+        <div class="form-group">
+            {# On génère le label. #}
+            {{ form_label(form.date, "Date", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour le champ name. #}
+            {{ form_errors(form.date) }}
+            <div class="col-sm-5">
+                <div class='input-group date' id='datetimepicker'>
+                    {# On génère l'input. #}
+                    {# form_widget(form.date, {'attr': {'class': 'form-control input-inline datetimepicker'}}) #}
+                    {{ form_widget(form.date, { 'attr': {'class': 'datepicker'}}) }}
+                </div>
+            </div>
+        </div>
+        <!-- Fin de la configuration du champs title -->
+        
+        <!-- Configuration du champs title -->
+        <div class="form-group">
+            {# On génère le label. #}
+            {{ form_label(form.title, "Titre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour le champ name. #}
+            {{ form_errors(form.title) }}
+            <div class="col-sm-5">
+                {# On génère l'input. #}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <!-- Fin de la configuration du champs title -->
+        
+        <!-- Configuration du champs content -->
+        <div class="form-group">
+            {# On génère le label. #}
+            {{ form_label(form.content, "Description", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour le champ name. #}
+            {{ form_errors(form.content) }}
+            <div class="col-sm-5">
+                {# On génère l'input. #}
+                {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <!-- Fin de la configuration du champs content -->
+        
+        <!-- Configuration du champs active -->
+        <div class="form-group">
+            {# On génère le label. #}
+            {{ form_label(form.active, "Statut", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            <div class="col-sm-5">                
+                {# form_row(form.active) #}
+                {{ form_widget(form.active) }} <em>Activée/Désactivée</em>
+            </div>
+        </div>
+        <!-- Fin de la configuration du champs active -->
+        
+        <!-- Configuration du bouton submit -->
+        <div class="form-group">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5">                
+                {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                {{ form_widget(form.save, {'label': 'Enregistrer l\'annonce','attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+        </div>
+        <!-- Fin de la configuration du bouton submit -->
+        
+        {# Génération automatique des champs pas encore écrits.
+        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+        et tous les champs cachés (type « hidden »). #}
+        {{ form_rest(form) }}
+        
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+</div>

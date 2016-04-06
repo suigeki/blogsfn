@@ -145,7 +145,7 @@ class CategoryController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'La catégorie a été modifiée.');
 
             // On redirige vers la page de visualisation de l'annonce nouvellement créée
-            return $this->redirect($this->generateUrl('blog_general_categoryview', array('id' => $category->getId())));
+            return $this->redirect($this->generateUrl('blog_general_categoryview', array('id' => $category->getId(), 'slug' => $category->getName())));
         }
         
         // À ce stade, le formulaire n'est pas valide car :

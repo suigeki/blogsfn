@@ -41,7 +41,14 @@ class Article
      * @ORM\Column(name="content", type="text")
      */
     private $content;
-
+    
+    /**
+     *
+     * @var type boolean
+     * 
+     * @ORM\Column(name="active", type="boolean", options={"default":true})
+     */
+    private $active;
 
     /**
      * Get id
@@ -120,5 +127,28 @@ class Article
     public function getContent()
     {
         return $this->content;
+    }
+    
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Category
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }

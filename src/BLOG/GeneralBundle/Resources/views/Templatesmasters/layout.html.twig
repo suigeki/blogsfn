@@ -17,3 +17,9 @@
     {% endblock %}
 
 {% endblock %}
+
+{% block js_layout_main %}
+    {{ parent() }}
+    {% block js_layout_bundle %}
+    {% endblock %}
+{% endblock %}

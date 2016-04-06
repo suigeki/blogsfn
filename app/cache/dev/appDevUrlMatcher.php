@@ -143,8 +143,18 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // blog_general_articleview
-        if (0 === strpos($pathinfo, '/viewArticle') && preg_match('#^/viewArticle/(?P<id>\\d+)/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/viewArticle') && preg_match('#^/viewArticle/(?P<id>\\d+)/(?P<slug>[^/]+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_general_articleview')), array (  '_controller' => 'BLOG\\GeneralBundle\\Controller\\ArticleController::viewAction',));
+        }
+
+        // blog_general_articleadd
+        if ($pathinfo === '/addArticle') {
+            return array (  '_controller' => 'BLOG\\GeneralBundle\\Controller\\ArticleController::addAction',  '_route' => 'blog_general_articleadd',);
+        }
+
+        // blog_general_articleedit
+        if (0 === strpos($pathinfo, '/editArticle') && preg_match('#^/editArticle/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_general_articleedit')), array (  '_controller' => 'BLOG\\GeneralBundle\\Controller\\ArticleController::editAction',));
         }
 
         // blog_general_categorylist

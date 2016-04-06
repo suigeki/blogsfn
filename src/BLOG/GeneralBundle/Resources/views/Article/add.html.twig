@@ -25,3 +25,26 @@
         Attention : cette annonce sera ajoutée directement après validation du formulaire.
     </p>
 {% endblock %}
+
+{% block js_layout_bundle %}
+    {{ parent() }} 
+    <script src="{{ asset('public/js/bootstrap/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            dayNames: [ "Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" ],
+            dayNamesMin: [ "Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam" ],
+            monthNames: [ "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" ],
+            monthNamesShort: [ "Jan", "Fév", "Mar", "Avr", "Mai", "Jui", "JuL", "Aoû", "Sep", "Oct", "Nov", "Déc"],
+            appendText:" (aaaa-mm-jj)",
+            dateFormat:"yy-mm-dd H:m",
+            //altField: "#datepicker-4",
+            altFormat: "DD, d MM, yy"
+        });
+        //$('#datetimepicker').datetimepicker({
+        //    locale: 'es',
+        //    useCurrent: false,
+        //    sideBySide: true
+        //});
+    </script>
+    
+{% endblock %}
